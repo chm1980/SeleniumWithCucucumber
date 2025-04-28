@@ -46,11 +46,4 @@
                     </goals>
                     <configuration>
                         <projectName>ExecuteAutomation</projectName>
-                        <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
-                        <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
-                    </configuration>
-                </execution>
-            </executions>
-        </plugin>
-    </plugins>
-</build>
+                        <outputDirectory>${project
