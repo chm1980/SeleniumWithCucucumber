@@ -1,70 +1,42 @@
 package steps;
 
-import Base.BaseUtil;
-import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import io.cucumber.java.Scenario;
 
-public class Hook extends BaseUtil {
+public class Hook {
 
-    private BaseUtil base;
-
-    public Hook(BaseUtil base) {
-        this.base = base;
-    }
+    public static WebDriver driver;
 
     @Before
     public void InitializeTest(Scenario scenario) {
         System.out.println("On test start");
 
-        base.scenarioDef = base.features.createNode(scenario.getName());
+        // Define o caminho correto do ChromeDriver instalado no Raspberry Pi
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
+        // Instancia o ChromeDriver
         try {
-            // Setup do WebDriver com Chrome headless (necessário para Raspberry Pi ou servidores sem GUI)
-            WebDriverManager.chromedriver().setup();
-
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless=new");
-            options.addArguments("--no-sandbox");
-            options.addArguments("--disable-dev-shm-usage");
-            options.addArguments("--disable-gpu");
-            options.addArguments("--remote-allow-origins=*");
-
-            base.Driver = new ChromeDriver(options);
+            driver = new ChromeDriver();
         } catch (Exception e) {
             System.err.println("Erro ao iniciar o WebDriver: " + e.getMessage());
             e.printStackTrace();
-            base.Driver = null;
+            throw e;
         }
     }
 
     @After
     public void TearDownTest(Scenario scenario) {
-        System.out.println("On test failure");
-
-        if (scenario.isFailed()) {
-            System.out.println("Scenario failed: " + scenario.getName());
-            // Aqui você pode adicionar lógica para captura de screenshot
-        }
-
-        System.out.println("Closing the browser");
-
-        if (base.Driver != null) {
-            base.Driver.quit();
-        } else {
-            System.out.println("Driver was not initialized, skipping quit()");
+        System.out.println("On test " + (scenario.isFailed() ? "failure" : "success"));
+        
+        if (driver != null) {
+            driver.quit();
         }
     }
 
-    @BeforeStep
-    public void BeforeEveryStep(Scenario scenario) {
-        System.out.println("Before step: " + scenario.getName());
-    }
-
-    @AfterStep
-    public void AfterEveryStep(Scenario scenario) {
-        System.out.println("After step: " + scenario.getName());
+    public static WebDriver getDriver() {
+        return driver;
     }
 }
