@@ -54,7 +54,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0</version> <!-- Atualizado para versão 3.0.0 -->
+                     <!-- 
                 <version>2.22.2</version>
+                     -->
                 <configuration>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
