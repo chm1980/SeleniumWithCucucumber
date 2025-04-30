@@ -150,10 +150,11 @@
             <version>5.5.2</version>
         </dependency>
 
+        <!-- Atualizado para uma versão mais antiga do extentreports onde ExtentHtmlReporter está disponível -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>5.0.7</version>
+            <version>4.1.0</version>
         </dependency>
     </dependencies>
 </project>
