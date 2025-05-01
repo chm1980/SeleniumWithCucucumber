@@ -1,5 +1,5 @@
 Feature: LoginFeature
-  This feature deals with the login functionality of the applications
+  This feature verifies the login functionality of the application
 
   Scenario: Login with correct username and password
     Given I navigate to the login page
@@ -9,10 +9,10 @@ Feature: LoginFeature
     And I click login button
     Then I should see the userform page
 
-  Scenario: Login with correct username and password to fail
+  Scenario: Login with incorrect credentials
     Given I navigate to the login page
     And I enter the following for Login
       | username | password      |
-      | admin    | adminpassword |
+      | admin    | wrongpassword |
     And I click login button
-    Then I should see the userform page wrongly
+    Then I should see an error message

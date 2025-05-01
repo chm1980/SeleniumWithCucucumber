@@ -5,23 +5,22 @@ import io.cucumber.testng.CucumberOptions;
 import org.testng.annotations.DataProvider;
 
 /**
- * TestRunner for executing Cucumber tests with TestNG
+ * Created by Karthik on 21/09/2019.
  */
 
 @CucumberOptions(
-    features = {"src/test/java/features"},  // Caminho para os arquivos de feature
-    glue = "steps",  // Pacote onde os steps definitions estão localizados
-    plugin = {
-        "pretty",  // Impressão de logs no console
-        "json:target/cucumber.json",  // Relatório JSON para integração com o plugin de relatórios
-        "html:target/cucumber-html-report"  // Relatório HTML para visualização rápida
-    }
+    features = {"src/test/resources/features"},  // Caminho atualizado para as features
+    plugin = {"json:target/cucumber.json", "pretty"},
+    glue = "steps"
 )
 public class TestRunner extends AbstractTestNGCucumberTests {
 
     @Override
     @DataProvider
+    //@DataProvider (parallel = true) -- For parallel execution support (which is not going to work for our code)
     public Object[][] scenarios() {
         return super.scenarios();
     }
+
 }
+

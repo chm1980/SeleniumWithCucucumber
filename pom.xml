@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
@@ -11,31 +11,20 @@
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <webdrivermanager.version>4.3.1</webdrivermanager.version>
-        <cucumber.version>6.9.1</cucumber.version>
+        <webdrivermanager.version>5.8.0</webdrivermanager.version>
+        <cucumber.version>7.14.0</cucumber.version>
+        <cucumber.reporting.version>5.5.2</cucumber.reporting.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>central</id>
-            <url>https://repo.maven.apache.org/maven2</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.11.0</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
-                    <fork>true</fork>
-                    <executable>${JAVA_HOME}/bin/javac</executable>
-                    <compilerArgs>
-                        <arg>--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
-                    </compilerArgs>
                 </configuration>
             </plugin>
 
@@ -48,7 +37,7 @@
                         <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <systemPropertyVariables>
-                        <testng.dtd.http>true</testng.dtd.http>
+                        <cucumber.plugin>pretty,json:${project.build.directory}/cucumber.json</cucumber.plugin>
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
@@ -65,7 +54,7 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>ExecuteAutomation</projectName>
+                            <projectName>CucumberBasics</projectName>
                             <outputDirectory>${project.build.directory}/cucumber-report-html</outputDirectory>
                             <cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
                         </configuration>
@@ -76,6 +65,7 @@
     </build>
 
     <dependencies>
+        <!-- Cucumber Core + TestNG -->
         <dependency>
             <groupId>io.cucumber</groupId>
             <artifactId>cucumber-java</artifactId>
@@ -90,40 +80,16 @@
 
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.cucumber</groupId>
             <artifactId>cucumber-picocontainer</artifactId>
             <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-core</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.picocontainer</groupId>
-            <artifactId>picocontainer</artifactId>
-            <version>2.15</version>
-        </dependency>
-
+        <!-- Selenium e WebDriverManager -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.0.0-beta-2</version>
+            <version>4.18.1</version>
         </dependency>
 
         <dependency>
@@ -132,23 +98,41 @@
             <version>${webdrivermanager.version}</version>
         </dependency>
 
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Cucumber Reporting -->
         <dependency>
             <groupId>net.masterthought</groupId>
             <artifactId>cucumber-reporting</artifactId>
-            <version>5.5.2</version>
+            <version>${cucumber.reporting.version}</version>
         </dependency>
 
+        <!-- ExtentReports -->
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
             <version>4.1.0</version>
         </dependency>
 
-        <!-- FreeMarker atualizado para evitar incompatibilidades -->
+        <!-- FreeMarker (para relatórios Extent) -->
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
-            <version>2.3.29</version>
+            <version>2.3.31</version>
+        </dependency>
+
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.24</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
