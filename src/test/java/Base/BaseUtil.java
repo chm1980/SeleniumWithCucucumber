@@ -2,6 +2,7 @@ package Base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -9,63 +10,61 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseUtil {
 
-    // Instância do WebDriver
+    // Instância do WebDriver (estático para acesso global)
     public static WebDriver Driver;
 
-    // Instância do ExtentReports para gerar relatórios
+    // Instância do ExtentReports para geração de relatórios
     public ExtentReports extent;
 
-    // Instâncias do ExtentTest para cenário e feature
+    // Instâncias de teste para relatório
     public static ExtentTest scenarioDef;
     public static ExtentTest features;
 
-    // Localização do relatório
-    public static String reportLocation = "/path/to/your/report/directory";
+    // Caminho para salvar relatórios (dentro do diretório do projeto)
+    public static String reportLocation = System.getProperty("user.dir") + "/reports";
 
-    // Método para inicializar o WebDriver
+    // Inicializa o WebDriver
     public void InitializeTest() {
-        // Gerenciar a versão do ChromeDriver automaticamente
         WebDriverManager.chromedriver().setup();
 
-        // Configurações do ChromeOptions
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");  // Executar no modo headless (sem interface gráfica)
-        options.addArguments("--no-sandbox");  // Para o Chromium rodar sem problemas em containers
-        options.addArguments("--disable-dev-shm-usage");  // Evitar problemas em ambientes com recursos limitados
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
 
-        // Inicializar o WebDriver
         Driver = new ChromeDriver(options);
-        Driver.manage().window().maximize();  // Maximizar a janela
+        Driver.manage().window().maximize();
     }
 
-    // Método para configurar o ExtentReports
+    // Configura o ExtentReports
     public void InitializeReport() {
-        // Criar um novo relatório Extent
         extent = new ExtentReports();
-        // Configurar o local de saída do relatório
+
         extent.setSystemInfo("OS", "Linux");
         extent.setSystemInfo("Browser", "Chrome");
 
-        // Configuração do local do relatório, usando a variável reportLocation
         String reportPath = reportLocation + "/TestReport.html";
-        com.aventstack.extentreports.reporter.ExtentHtmlReporter htmlReporter = new com.aventstack.extentreports.reporter.ExtentHtmlReporter(reportPath);
+        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
         extent.attachReporter(htmlReporter);
     }
 
-    // Método para gerar relatório de cada cenário
+    // Cria um relatório para um cenário específico
     public void CreateTestReport(String testName) {
         scenarioDef = extent.createTest(testName);
     }
 
-    // Método para fechar o WebDriver
+    // Fecha o navegador
     public void CloseBrowser() {
         if (Driver != null) {
-            Driver.quit();  // Fecha o navegador
+            Driver.quit();
         }
     }
 
-    // Método para salvar o relatório após a execução
+    // Salva o relatório após os testes
     public void SaveReport() {
-        extent.flush();  // Salva os resultados do ExtentReport
+        if (extent != null) {
+            extent.flush();
+        }
     }
 }
+
