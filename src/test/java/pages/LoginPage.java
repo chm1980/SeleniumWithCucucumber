@@ -5,13 +5,23 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
 
 /**
- * Created by Karthik on 21/09/2019.
+ * Página de login.
  */
 public class LoginPage {
 
+    private WebDriver driver;
+    
+    // Espera explícita para elementos
+    private WebDriverWait wait;
+
     public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
 
@@ -24,16 +34,27 @@ public class LoginPage {
     @FindBy(how = How.NAME, using = "Login")
     public WebElement btnLogin;
 
-    public void Login(String userName, String password)
-    {
-        txtUserName.sendKeys(userName);
-        txtPassword.sendKeys(password);
+    /**
+     * Preenche os campos de login.
+     */
+    public void login(String userName, String password) {
+        try {
+            wait.until(ExpectedConditions.visibilityOf(txtUserName)).sendKeys(userName);
+            wait.until(ExpectedConditions.visibilityOf(txtPassword)).sendKeys(password);
+        } catch (Exception e) {
+            System.out.println("Erro ao preencher os campos de login: " + e.getMessage());
+        }
     }
 
-    public void ClickLogin()
-    {
-        btnLogin.submit();
+    /**
+     * Clica no botão de login.
+     */
+    public void clickLogin() {
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(btnLogin)).click();
+        } catch (Exception e) {
+            System.out.println("Erro ao clicar no botão de login: " + e.getMessage());
+        }
     }
-
-
 }
+

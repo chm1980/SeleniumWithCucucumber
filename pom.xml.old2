@@ -33,10 +33,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0</version>
                 <configuration>
-                    <useModulePath>false</useModulePath>
-                    <dependenciesToScan>
-                        <dependency>org.junit.jupiter</dependency>
-                    </dependenciesToScan>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>src/test/java/testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <cucumber.plugin>pretty,json:${project.build.directory}/cucumber.json</cucumber.plugin>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
@@ -88,26 +90,28 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.18.1</version>
-         </dependency>
+   	 </dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
+	<dependency>
+    	   <groupId>org.junit.jupiter</groupId>
+    	   <artifactId>junit-jupiter-api</artifactId>
+    	   <version>5.7.0</version>
+    	   <scope>test</scope>
+	</dependency>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.7.0</version>
-            <scope>test</scope>
-        </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdrivermanager.version}</version>
+        </dependency>
+
+        <!-- TestNG -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.10.2</version>
+            <scope>test</scope>
         </dependency>
 
         <!-- Cucumber Reporting -->
@@ -140,4 +144,3 @@
         </dependency>
     </dependencies>
 </project>
-
