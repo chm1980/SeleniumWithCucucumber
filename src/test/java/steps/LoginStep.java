@@ -7,12 +7,12 @@ import io.cucumber.java.DataTableType;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import pages.LoginPage;
 
 import java.util.List;
-import java.util.Map;
+import java.util.Map; 
+import org.junit.jupiter.api.Assertions;
 
 /**
  * Created by Karthik on 31/01/2019.
