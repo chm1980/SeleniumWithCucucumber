@@ -42,7 +42,7 @@ public class Hook extends BaseUtil {
         // Configurações para execução headless em ARM/Linux
         ChromeOptions options = new ChromeOptions();
         options.setBinary(chromium.getAbsolutePath()); // Usa o caminho do Chromium
-        options.addArguments("--headless=new"); // Preferencialmente --headless=new
+        options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
@@ -70,4 +70,18 @@ public class Hook extends BaseUtil {
     @BeforeStep
     public void BeforeEveryStep(Scenario scenario) {
         System.out.println("Executando step: " + scenario.getName());
+    }
+
+    @AfterStep
+    public void AfterEveryStep(Scenario scenario) {
+        // Pode ser usado para capturar screenshot/log por step
+    }
+
+    @AfterAll
+    public static void TearDownReport() {
+        if (extent != null) {
+            extent.flush();
+        }
+    }
+}
 
