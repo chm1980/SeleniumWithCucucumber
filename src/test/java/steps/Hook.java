@@ -1,27 +1,9 @@
 package steps;
 
 import Base.BaseUtil;
-
-
-//import cucumber.api.PickleStepTestStep;
-//import cucumber.api.TestCase;
-//import gherkin.pickles.PickleStep;
-//import io.cucumber.core.api.Scenario;
-
-
 import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.checkerframework.checker.units.qual.C;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
 
-
-/**
- * Created by Karthik on 31/01/2019.
- */
-
-public class Hook extends BaseUtil{
+public class Hook extends BaseUtil {
 
     private BaseUtil base;
 
@@ -38,11 +20,9 @@ public class Hook extends BaseUtil{
         base.Driver = new ChromeDriver(chromeOptions);
     }
 
-
     @After
     public void TearDownTest(Scenario scenario) {
         if (scenario.isFailed()) {
-            //Take screenshot logic goes here
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
@@ -58,5 +38,4 @@ public class Hook extends BaseUtil{
     public void AfterEveryStep(Scenario scenario) throws NoSuchFieldException, IllegalAccessException {
         //System.out.println("Before every step " + stepTestStep.getId());
     }
-
 }
