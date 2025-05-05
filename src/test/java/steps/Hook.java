@@ -42,7 +42,7 @@ public class Hook extends BaseUtil {
         // Configurações para execução headless em ARM/Linux
         ChromeOptions options = new ChromeOptions();
         options.setBinary(chromium.getAbsolutePath()); // Usa o caminho do Chromium
-        options.addArguments("--headless=new");
+        options.addArguments("--headless=old");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");

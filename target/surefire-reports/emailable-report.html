@@ -9,23 +9,23 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Surefire suite</th></tr>
-<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">173,847</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Surefire test</a></td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num attn">2</td><td class="num">168,668</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">runner.TestRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="2">1746480364819</td><td rowspan="2">68198</td></tr><tr class="failedeven"><td><a href="#m1">runScenario</a></td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Surefire suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Surefire test &#8212; failed</th></tr><tr class="failedeven"><td rowspan="2">runner.TestRunner</td><td><a href="#m0">runScenario</a></td><td rowspan="2">1746481251283</td><td rowspan="2">63581</td></tr><tr class="failedeven"><td><a href="#m1">runScenario</a></td></tr></tbody>
 </table>
 <h2>Surefire test</h2><h3 id="m0">runner.TestRunner#runScenario</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>&quot;Login with incorrect credentials&quot;</td><td>&quot;LoginFeature&quot;</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Detalhes: Could not start a new session. Response code 500. Message: session not created: DevToolsActivePort file doesn&apos;t exist 
 Host info: host: &apos;rasp2&apos;, ip: &apos;192.168.0.220&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;6.1.21-v8+&apos;, java.version: &apos;17.0.14&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
-	at steps.Hook.InitializeTest(Hook.java:55)
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless=new, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
+	at steps.Hook.InitializeTest(Hook.java:56)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: DevToolsActivePort file doesn&apos;t exist 
 Host info: host: &apos;rasp2&apos;, ip: &apos;192.168.0.220&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;6.1.21-v8+&apos;, java.version: &apos;17.0.14&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless=new, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:95)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:67)
@@ -39,7 +39,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:52)
+	at steps.Hook.InitializeTest(Hook.java:53)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
 	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
 	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
@@ -64,14 +64,14 @@ Host info: host: &apos;rasp2&apos;, ip: &apos;192.168.0.220&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;6.1.21-v8+&apos;, java.version: &apos;17.0.14&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
-	at steps.Hook.InitializeTest(Hook.java:55)
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless=new, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
+	at steps.Hook.InitializeTest(Hook.java:56)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created: DevToolsActivePort file doesn&apos;t exist 
 Host info: host: &apos;rasp2&apos;, ip: &apos;192.168.0.220&apos;
 Build info: version: &apos;4.18.1&apos;, revision: &apos;b1d3319b48&apos;
 System info: os.name: &apos;Linux&apos;, os.arch: &apos;aarch64&apos;, os.version: &apos;6.1.21-v8+&apos;, java.version: &apos;17.0.14&apos;
 Driver info: org.openqa.selenium.chrome.ChromeDriver
-Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
+Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goog:chromeOptions: {args: [--headless=new, --no-sandbox, --disable-dev-shm-usage, --disable-gpu, --window-size=1920x1080, --remote-allow-origins=*], binary: /usr/bin/chromium-browser, extensions: []}}]}]
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:139)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:95)
 	at org.openqa.selenium.remote.ProtocolHandshake.createSession(ProtocolHandshake.java:67)
@@ -85,7 +85,7 @@ Command: [null, newSession {capabilities=[Capabilities {browserName: chrome, goo
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.&lt;init&gt;(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:52)
+	at steps.Hook.InitializeTest(Hook.java:53)
 	at io.cucumber.java.Invoker.doInvoke(Invoker.java:66)
 	at io.cucumber.java.Invoker.invoke(Invoker.java:24)
 	at io.cucumber.java.AbstractGlueDefinition.invokeMethod(AbstractGlueDefinition.java:47)
