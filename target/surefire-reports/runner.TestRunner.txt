@@ -1,12 +1,12 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 50.501 s <<< FAILURE! - in runner.TestRunner
-runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 1.969 s  <<< FAILURE!
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 63.85 s <<< FAILURE! - in runner.TestRunner
+runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 2.01 s  <<< FAILURE!
 java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-	at steps.Hook.InitializeTest(Hook.java:34)
+	at steps.Hook.InitializeTest(Hook.java:20)
 
-runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 0.824 s  <<< FAILURE!
+runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 1.348 s  <<< FAILURE!
 java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-	at steps.Hook.InitializeTest(Hook.java:34)
+	at steps.Hook.InitializeTest(Hook.java:20)
 

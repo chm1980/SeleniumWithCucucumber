@@ -33,8 +33,8 @@ public class BaseUtil {
         String reportPath = reportLocation + "/TestReport.html";
         ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
         extent.attachReporter(htmlReporter);
-        // Inicialize 'features' aqui com um nome para o relatório da feature
-        features = extent.createTest("Nome das Features"); // Você pode usar um nome mais descritivo
+        // Inicialize 'features' aqui, logo após inicializar 'extent'
+        features = extent.createTest("Nome das Features");
     }
 
     public void CreateTestReport(String testName) {
