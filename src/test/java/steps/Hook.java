@@ -5,7 +5,7 @@ import io.cucumber.java.*;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import io.github.bonigarcia.wdm.WebDriverManager; // Importação do WebDriverManager
+// import io.github.bonigarcia.wdm.WebDriverManager; // REMOVIDO
 import java.io.File;
 
 public class Hook extends BaseUtil {
@@ -35,16 +35,17 @@ public class Hook extends BaseUtil {
 
         chromedriver.setExecutable(true); // Garante que o ChromeDriver tenha permissão de execução
 
-        // Inicializando o WebDriverManager e configurando a versão do ChromeDriver
-        WebDriverManager.chromedriver().setup(); // Inicializa o WebDriverManager
+        // Habilita logs detalhados do ChromeDriver (opcional para debug)
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
 
         ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("/usr/bin/chromium-browser"); // Ajuste para Raspberry Pi se necessário
+        chromeOptions.setBinary("/usr/bin/chromium-browser"); // Ajuste para Raspberry Pi
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("--window-size=1920x1080");  // Tamanho da janela para modo headless
+        chromeOptions.addArguments("--window-size=1920x1080");
         chromeOptions.addArguments("--remote-allow-origins=*");
 
         try {

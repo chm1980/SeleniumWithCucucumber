@@ -2,26 +2,26 @@
 <testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-05T17:46:51 BRT" name="Surefire suite" finished-at="2025-05-05T17:50:19 BRT" duration-ms="207733">
+  <suite started-at="2025-05-05T18:14:03 BRT" name="Surefire suite" finished-at="2025-05-05T18:17:19 BRT" duration-ms="195315">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@7880cdf3]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-05-05T17:46:51 BRT" name="Surefire test" finished-at="2025-05-05T17:50:19 BRT" duration-ms="207733">
+    <test started-at="2025-05-05T18:14:03 BRT" name="Surefire test" finished-at="2025-05-05T18:17:19 BRT" duration-ms="195315">
       <class name="runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T17:46:51 BRT" name="setUpClass" finished-at="2025-05-05T17:47:42 BRT" duration-ms="50827" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T18:14:04 BRT" name="setUpClass" finished-at="2025-05-05T18:15:16 BRT" duration-ms="72040" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@daf22f0]]>
+                <![CDATA[org.testng.TestRunner@5426cb36]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T17:47:42 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T17:48:51 BRT" duration-ms="69264" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T18:15:16 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T18:16:12 BRT" duration-ms="56319" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -36,11 +36,13 @@
           </params>
           <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.]]>
+              <![CDATA[Falha ao iniciar o ChromeDriver. Detalhes: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'rasp2', ip: '192.168.0.220']]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.
-at steps.Hook.InitializeTest(Hook.java:45)
+              <![CDATA[java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Detalhes: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'rasp2', ip: '192.168.0.220'
+at steps.Hook.InitializeTest(Hook.java:54)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'rasp2', ip: '192.168.0.220'
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:537)
@@ -50,7 +52,7 @@ at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:114)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-at steps.Hook.InitializeTest(Hook.java:42)
+at steps.Hook.InitializeTest(Hook.java:51)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -119,7 +121,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T17:48:52 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T17:49:24 BRT" duration-ms="32675" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T18:16:12 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T18:16:25 BRT" duration-ms="12563" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -134,11 +136,13 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
           </params>
           <exception class="java.lang.RuntimeException">
             <message>
-              <![CDATA[Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.]]>
+              <![CDATA[Falha ao iniciar o ChromeDriver. Detalhes: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'rasp2', ip: '192.168.0.220']]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.
-at steps.Hook.InitializeTest(Hook.java:45)
+              <![CDATA[java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Detalhes: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
+Host info: host: 'rasp2', ip: '192.168.0.220'
+at steps.Hook.InitializeTest(Hook.java:54)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'rasp2', ip: '192.168.0.220'
 at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:537)
@@ -148,7 +152,7 @@ at org.openqa.selenium.chromium.ChromiumDriver.<init>(ChromiumDriver.java:114)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-at steps.Hook.InitializeTest(Hook.java:42)
+at steps.Hook.InitializeTest(Hook.java:51)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -217,7 +221,7 @@ at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T17:49:24 BRT" name="tearDownClass" finished-at="2025-05-05T17:50:19 BRT" duration-ms="54338" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@7880cdf3]" started-at="2025-05-05T18:16:25 BRT" name="tearDownClass" finished-at="2025-05-05T18:17:17 BRT" duration-ms="52434" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
