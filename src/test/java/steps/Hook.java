@@ -5,12 +5,12 @@ import io.cucumber.java.*;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-// import io.github.bonigarcia.wdm.WebDriverManager; // REMOVIDO
+
 import java.io.File;
 
 public class Hook extends BaseUtil {
 
-    private BaseUtil base;
+    private final BaseUtil base;
 
     public Hook(BaseUtil base) {
         this.base = base;
@@ -22,34 +22,35 @@ public class Hook extends BaseUtil {
         base.features = base.extent.createTest("Nome das Features");
         base.scenarioDef = base.features.createNode(scenario.getName());
 
-        // Verificação de binário do Chromium para ARM
-        if (!new File("/usr/bin/chromium-browser").exists() && !new File("/usr/bin/chrome").exists()) {
-            throw new RuntimeException("Chromium/Chrome browser não encontrado. Certifique-se de que o navegador está instalado.");
+        // Verifica se o Chromium está instalado
+        File chromium = new File("/usr/bin/chromium-browser");
+        if (!chromium.exists()) {
+            throw new RuntimeException("Chromium browser não encontrado em /usr/bin/chromium-browser. Verifique se está instalado.");
         }
 
-        // Certifique-se de que o chromedriver tenha permissões de execução
+        // Verifica se o ChromeDriver está instalado e tem permissão de execução
         File chromedriver = new File("/usr/bin/chromedriver");
         if (!chromedriver.exists()) {
-            throw new RuntimeException("ChromeDriver não encontrado. Certifique-se de que o ChromeDriver está instalado corretamente.");
+            throw new RuntimeException("ChromeDriver não encontrado em /usr/bin/chromedriver.");
         }
+        chromedriver.setExecutable(true); // Garante permissão de execução
 
-        chromedriver.setExecutable(true); // Garante que o ChromeDriver tenha permissão de execução
-
-        // Habilita logs detalhados do ChromeDriver (opcional para debug)
-        System.setProperty("webdriver.chrome.verboseLogging", "true");
+        // Define o caminho do ChromeDriver
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
+        System.setProperty("webdriver.chrome.verboseLogging", "true"); // Logs detalhados
 
-        ChromeOptions chromeOptions = new ChromeOptions();
-        chromeOptions.setBinary("/usr/bin/chromium-browser"); // Ajuste para Raspberry Pi
-        chromeOptions.addArguments("--headless");
-        chromeOptions.addArguments("--no-sandbox");
-        chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--disable-gpu");
-        chromeOptions.addArguments("--window-size=1920x1080");
-        chromeOptions.addArguments("--remote-allow-origins=*");
+        // Configurações para execução headless em ARM/Linux
+        ChromeOptions options = new ChromeOptions();
+        options.setBinary(chromium.getAbsolutePath()); // Usa o caminho do Chromium
+        options.addArguments("--headless=new"); // Preferencialmente --headless=new
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--window-size=1920x1080");
+        options.addArguments("--remote-allow-origins=*");
 
         try {
-            base.Driver = new ChromeDriver(chromeOptions);
+            base.Driver = new ChromeDriver(options);
         } catch (WebDriverException e) {
             e.printStackTrace();
             throw new RuntimeException("Falha ao iniciar o ChromeDriver. Detalhes: " + e.getMessage(), e);
@@ -59,7 +60,7 @@ public class Hook extends BaseUtil {
     @After
     public void TearDownTest(Scenario scenario) {
         if (scenario.isFailed()) {
-            System.out.println(scenario.getName());
+            System.out.println("Cenário falhou: " + scenario.getName());
         }
         if (base.Driver != null) {
             base.Driver.quit();
@@ -68,19 +69,5 @@ public class Hook extends BaseUtil {
 
     @BeforeStep
     public void BeforeEveryStep(Scenario scenario) {
-        System.out.println("Before every step " + scenario.getId());
-    }
-
-    @AfterStep
-    public void AfterEveryStep(Scenario scenario) {
-        // Log por step, se necessário
-    }
-
-    @AfterAll
-    public static void TearDownReport() {
-        if (extent != null) {
-            extent.flush();
-        }
-    }
-}
+        System.out.println("Executando step: " + scenario.getName());
 
