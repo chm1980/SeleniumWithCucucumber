@@ -61,5 +61,25 @@ public class Hook extends BaseUtil {
             System.out.println(scenario.getName());
         }
         if (base.Driver != null) {
-            base.Driver.quit
+            base.Driver.quit();
+        }
+    }
+
+    @BeforeStep
+    public void BeforeEveryStep(Scenario scenario) {
+        System.out.println("Before every step " + scenario.getId());
+    }
+
+    @AfterStep
+    public void AfterEveryStep(Scenario scenario) {
+        // Log por step, se necessário
+    }
+
+    @AfterAll
+    public static void TearDownReport() {
+        if (extent != null) {
+            extent.flush();
+        }
+    }
+}
 
