@@ -21,7 +21,7 @@ public class Hook extends BaseUtil {
         base.scenarioDef = base.features.createNode(scenario.getName());
         WebDriverManager.chromedriver().setup();
         ChromeOptions chromeOptions = new ChromeOptions();
-        // chromeOptions.addArguments("--headless"); // Removendo a opção --headless
+        // chromeOptions.addArguments("--headless"); // Remova esta linha temporariamente
         base.Driver = new ChromeDriver(chromeOptions);
     }
 
@@ -31,7 +31,9 @@ public class Hook extends BaseUtil {
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
-        base.Driver.quit();
+        if (base.Driver != null) { // Adicione esta verificação nula
+            base.Driver.quit();
+        }
     }
 
     @BeforeStep
