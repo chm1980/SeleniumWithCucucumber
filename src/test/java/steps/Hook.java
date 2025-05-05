@@ -19,9 +19,16 @@ public class Hook extends BaseUtil {
         base.InitializeReport();
         base.features = base.extent.createTest("Nome das Features");
         base.scenarioDef = base.features.createNode(scenario.getName());
+
         WebDriverManager.chromedriver().setup();
+
         ChromeOptions chromeOptions = new ChromeOptions();
-        // chromeOptions.addArguments("--headless"); // Remova esta linha temporariamente
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--headless=new"); // Headless para ambientes sem display
+        chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--remote-allow-origins=*");
+
         base.Driver = new ChromeDriver(chromeOptions);
     }
 
@@ -31,7 +38,7 @@ public class Hook extends BaseUtil {
             System.out.println(scenario.getName());
         }
         System.out.println("Closing the browser : MOCK");
-        if (base.Driver != null) { // Adicione esta verificação nula
+        if (base.Driver != null) {
             base.Driver.quit();
         }
     }
@@ -43,7 +50,7 @@ public class Hook extends BaseUtil {
 
     @AfterStep
     public void AfterEveryStep(Scenario scenario) throws NoSuchFieldException, IllegalAccessException {
-        //System.out.println("Before every step " + stepTestStep.getId());
+        // Optional logging or reporting per step
     }
 
     @AfterAll
