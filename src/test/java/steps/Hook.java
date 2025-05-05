@@ -3,8 +3,11 @@ package steps;
 import Base.BaseUtil;
 import io.cucumber.java.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+
+import java.io.File;
 
 public class Hook extends BaseUtil {
 
@@ -20,16 +23,27 @@ public class Hook extends BaseUtil {
         base.features = base.extent.createTest("Nome das Features");
         base.scenarioDef = base.features.createNode(scenario.getName());
 
+        // Verificação de binário do Chromium para ARM
+        if (!new File("/usr/bin/chromium-browser").exists() && !new File("/usr/bin/chrome").exists()) {
+            throw new RuntimeException("Chromium/Chrome browser não encontrado. Certifique-se de que o navegador está instalado.");
+        }
+
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.setBinary("/usr/bin/chromium-browser"); // Ajuste para Raspberry Pi se necessário
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--headless=new"); // Headless para ambientes sem display
+        chromeOptions.addArguments("--headless=new");
         chromeOptions.addArguments("--disable-gpu");
         chromeOptions.addArguments("--remote-allow-origins=*");
 
-        base.Driver = new ChromeDriver(chromeOptions);
+        try {
+            base.Driver = new ChromeDriver(chromeOptions);
+        } catch (WebDriverException e) {
+            System.err.println("Erro ao iniciar o ChromeDriver: " + e.getMessage());
+            throw new RuntimeException("Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.", e);
+        }
     }
 
     @After
@@ -37,7 +51,6 @@ public class Hook extends BaseUtil {
         if (scenario.isFailed()) {
             System.out.println(scenario.getName());
         }
-        System.out.println("Closing the browser : MOCK");
         if (base.Driver != null) {
             base.Driver.quit();
         }
@@ -49,8 +62,8 @@ public class Hook extends BaseUtil {
     }
 
     @AfterStep
-    public void AfterEveryStep(Scenario scenario) throws NoSuchFieldException, IllegalAccessException {
-        // Optional logging or reporting per step
+    public void AfterEveryStep(Scenario scenario) {
+        // Log por step, se necessário
     }
 
     @AfterAll
