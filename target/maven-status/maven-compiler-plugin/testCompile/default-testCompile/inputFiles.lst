@@ -1,8 +1,8 @@
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/pages/LoginPage.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/steps/LoginStep.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/Base/ExtentReportUtil.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/steps/Hook.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/runner/TestRunner.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/runner/NGTestListener.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/Base/BaseUtil.java
-/home/jenkins/workspace/BasicEAFresstyle-2/src/test/java/Base/BaseClass.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/Base/BaseUtil.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/steps/Hook.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/Base/ExtentReportUtil.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/Base/BaseClass.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/pages/LoginPage.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/runner/TestRunner.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/steps/LoginStep.java
+/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/runner/NGTestListener.java
