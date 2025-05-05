@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 31.682 s <<< FAILURE! - in runner.TestRunner
-runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 9.348 s  <<< FAILURE!
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 241.006 s <<< FAILURE! - in runner.TestRunner
+runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 79.376 s  <<< FAILURE!
 java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.
 	at steps.Hook.InitializeTest(Hook.java:45)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
@@ -78,7 +78,7 @@ Driver info: driver.version: ChromeDriver
 	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:519)
 	... 61 more
 
-runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 1.172 s  <<< FAILURE!
+runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 22.547 s  <<< FAILURE!
 java.lang.RuntimeException: Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.
 	at steps.Hook.InitializeTest(Hook.java:45)
 Caused by: org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 

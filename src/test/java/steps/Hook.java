@@ -2,11 +2,9 @@ package steps;
 
 import Base.BaseUtil;
 import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import java.io.File;
 
 public class Hook extends BaseUtil {
@@ -28,21 +26,31 @@ public class Hook extends BaseUtil {
             throw new RuntimeException("Chromium/Chrome browser não encontrado. Certifique-se de que o navegador está instalado.");
         }
 
+        // Certifique-se de que o chromedriver tenha permissões de execução
+        File chromedriver = new File("/usr/bin/chromedriver");
+        if (!chromedriver.exists()) {
+            throw new RuntimeException("ChromeDriver não encontrado. Certifique-se de que o ChromeDriver está instalado corretamente.");
+        }
+
+        chromedriver.setExecutable(true); // Garante que o ChromeDriver tenha permissão de execução
+
+        // Inicializando o WebDriverManager e configurando a versão do ChromeDriver
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setBinary("/usr/bin/chromium-browser"); // Ajuste para Raspberry Pi se necessário
+        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--disable-dev-shm-usage");
-        chromeOptions.addArguments("--headless=new");
         chromeOptions.addArguments("--disable-gpu");
+        chromeOptions.addArguments("--window-size=1920x1080");  // Tamanho da janela para modo headless
         chromeOptions.addArguments("--remote-allow-origins=*");
 
         try {
             base.Driver = new ChromeDriver(chromeOptions);
         } catch (WebDriverException e) {
-            System.err.println("Erro ao iniciar o ChromeDriver: " + e.getMessage());
-            throw new RuntimeException("Falha ao iniciar o ChromeDriver. Verifique compatibilidade e instalação do navegador.", e);
+            e.printStackTrace();
+            throw new RuntimeException("Falha ao iniciar o ChromeDriver. Detalhes: " + e.getMessage(), e);
         }
     }
 
