@@ -54,7 +54,7 @@
         <dependency>
             <groupId>com.aventstack</groupId>
             <artifactId>extentreports</artifactId>
-            <version>4.1.0</version>
+            <version>5.1.1</version>
         </dependency>
 
         <dependency>
@@ -88,7 +88,7 @@
                 <version>3.0.0</version>
                 <configuration>
                     <useModulePath>false</useModulePath>
-                    </configuration>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>net.masterthought</groupId>

@@ -2,26 +2,26 @@
 <testng-results ignored="0" total="2" passed="0" failed="2" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-05-05T13:16:28 BRT" name="Surefire suite" finished-at="2025-05-05T13:16:49 BRT" duration-ms="20458">
+  <suite started-at="2025-05-05T13:33:55 BRT" name="Surefire suite" finished-at="2025-05-05T13:34:06 BRT" duration-ms="11323">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@bef2d72]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2025-05-05T13:16:28 BRT" name="Surefire test" finished-at="2025-05-05T13:16:49 BRT" duration-ms="20458">
+    <test started-at="2025-05-05T13:33:55 BRT" name="Surefire test" finished-at="2025-05-05T13:34:06 BRT" duration-ms="11323">
       <class name="runner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:16:29 BRT" name="setUpClass" finished-at="2025-05-05T13:16:38 BRT" duration-ms="8686" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:33:55 BRT" name="setUpClass" finished-at="2025-05-05T13:33:59 BRT" duration-ms="4256" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1ddd3478]]>
+                <![CDATA[org.testng.TestRunner@4c0884e8]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:16:38 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T13:16:40 BRT" duration-ms="1918" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:33:59 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T13:34:01 BRT" duration-ms="1104" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -34,20 +34,30 @@
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
+          <exception class="java.lang.Error">
             <message>
-              <![CDATA[Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null]]>
+              <![CDATA[Unresolved compilation problem: 
+VERSION_2_3_29 cannot be resolved or is not a field
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-at steps.Hook.InitializeTest(Hook.java:20)
+              <![CDATA[java.lang.Error: Unresolved compilation problem: 
+VERSION_2_3_29 cannot be resolved or is not a field
+
+at com.aventstack.extentreports.reporter.BasicFileReporter.start(BasicFileReporter.java:98)
+at com.aventstack.extentreports.ReportObservable.register(ReportObservable.java:191)
+at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+at com.aventstack.extentreports.ExtentReports.attachReporter(ExtentReports.java:82)
+at Base.BaseUtil.InitializeReport(BaseUtil.java:35)
+at steps.Hook.InitializeTest(Hook.java:19)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.Error -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:16:40 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T13:16:40 BRT" duration-ms="703" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:34:01 BRT" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2025-05-05T13:34:01 BRT" duration-ms="500" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -60,20 +70,30 @@ at steps.Hook.InitializeTest(Hook.java:20)
               </value>
             </param>
           </params>
-          <exception class="java.lang.NullPointerException">
+          <exception class="java.lang.Error">
             <message>
-              <![CDATA[Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null]]>
+              <![CDATA[Unresolved compilation problem: 
+VERSION_2_3_29 cannot be resolved or is not a field
+]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-at steps.Hook.InitializeTest(Hook.java:20)
+              <![CDATA[java.lang.Error: Unresolved compilation problem: 
+VERSION_2_3_29 cannot be resolved or is not a field
+
+at com.aventstack.extentreports.reporter.BasicFileReporter.start(BasicFileReporter.java:98)
+at com.aventstack.extentreports.ReportObservable.register(ReportObservable.java:191)
+at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+at com.aventstack.extentreports.ExtentReports.attachReporter(ExtentReports.java:82)
+at Base.BaseUtil.InitializeReport(BaseUtil.java:35)
+at steps.Hook.InitializeTest(Hook.java:19)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
+          </exception> <!-- java.lang.Error -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:16:40 BRT" name="tearDownClass" finished-at="2025-05-05T13:16:49 BRT" duration-ms="8407" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@bef2d72]" started-at="2025-05-05T13:34:01 BRT" name="tearDownClass" finished-at="2025-05-05T13:34:06 BRT" duration-ms="5129" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

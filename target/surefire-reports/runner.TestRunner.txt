@@ -1,12 +1,30 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 36.309 s <<< FAILURE! - in runner.TestRunner
-runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 1.939 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-	at steps.Hook.InitializeTest(Hook.java:20)
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 41.117 s <<< FAILURE! - in runner.TestRunner
+runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 1.15 s  <<< FAILURE!
+java.lang.Error: 
+Unresolved compilation problem: 
+	VERSION_2_3_29 cannot be resolved or is not a field
 
-runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 0.695 s  <<< FAILURE!
-java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentTest.createNode(String)" because "Base.BaseUtil.features" is null
-	at steps.Hook.InitializeTest(Hook.java:20)
+	at com.aventstack.extentreports.reporter.BasicFileReporter.start(BasicFileReporter.java:98)
+	at com.aventstack.extentreports.ReportObservable.register(ReportObservable.java:191)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at com.aventstack.extentreports.ExtentReports.attachReporter(ExtentReports.java:82)
+	at Base.BaseUtil.InitializeReport(BaseUtil.java:35)
+	at steps.Hook.InitializeTest(Hook.java:19)
+
+runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 0.489 s  <<< FAILURE!
+java.lang.Error: 
+Unresolved compilation problem: 
+	VERSION_2_3_29 cannot be resolved or is not a field
+
+	at com.aventstack.extentreports.reporter.BasicFileReporter.start(BasicFileReporter.java:98)
+	at com.aventstack.extentreports.ReportObservable.register(ReportObservable.java:191)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+	at com.aventstack.extentreports.ExtentReports.attachReporter(ExtentReports.java:82)
+	at Base.BaseUtil.InitializeReport(BaseUtil.java:35)
+	at steps.Hook.InitializeTest(Hook.java:19)
 
