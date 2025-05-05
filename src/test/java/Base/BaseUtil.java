@@ -1,3 +1,4 @@
+pi@rasp2:/home/jenkins/workspace/SeleniumWithCucumberPipeline/src/test/java/Base $ cat BaseUtil.java
 package Base;
 
 import com.aventstack.extentreports.ExtentReports;
@@ -53,3 +54,4 @@ public class BaseUtil {
         }
     }
 }
+

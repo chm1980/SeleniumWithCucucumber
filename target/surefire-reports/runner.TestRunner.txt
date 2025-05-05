@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: runner.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 104.427 s <<< FAILURE! - in runner.TestRunner
-runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 36.098 s  <<< FAILURE!
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 43.898 s <<< FAILURE! - in runner.TestRunner
+runner.TestRunner.runScenario["Login with correct username and password", "LoginFeature"](1)  Time elapsed: 15.963 s  <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
 Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'rasp2', ip: '192.168.0.220'
@@ -13,7 +13,7 @@ Host info: host: 'rasp2', ip: '192.168.0.220'
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:25)
+	at steps.Hook.InitializeTest(Hook.java:32)
 Caused by: org.openqa.selenium.WebDriverException: Driver server process died prematurely.
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'aarch64', os.version: '6.1.21-v8+', java.version: '17.0.14'
@@ -27,7 +27,7 @@ Driver info: driver.version: ChromeDriver
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:25)
+	at steps.Hook.InitializeTest(Hook.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -83,7 +83,7 @@ Driver info: driver.version: ChromeDriver
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
 
-runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 1.23 s  <<< FAILURE!
+runner.TestRunner.runScenario["Login with incorrect credentials", "LoginFeature"](2)  Time elapsed: 1.117 s  <<< FAILURE!
 org.openqa.selenium.SessionNotCreatedException: 
 Could not start a new session. Possible causes are invalid address of the remote server or browser start-up failure. 
 Host info: host: 'rasp2', ip: '192.168.0.220'
@@ -94,7 +94,7 @@ Host info: host: 'rasp2', ip: '192.168.0.220'
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:25)
+	at steps.Hook.InitializeTest(Hook.java:32)
 Caused by: org.openqa.selenium.WebDriverException: Driver server process died prematurely.
 Build info: version: '4.18.1', revision: 'b1d3319b48'
 System info: os.name: 'Linux', os.arch: 'aarch64', os.version: '6.1.21-v8+', java.version: '17.0.14'
@@ -108,7 +108,7 @@ Driver info: driver.version: ChromeDriver
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:89)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:84)
 	at org.openqa.selenium.chrome.ChromeDriver.<init>(ChromeDriver.java:73)
-	at steps.Hook.InitializeTest(Hook.java:25)
+	at steps.Hook.InitializeTest(Hook.java:32)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
