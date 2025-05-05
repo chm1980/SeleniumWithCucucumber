@@ -2,9 +2,9 @@ package steps;
 
 import Base.BaseUtil;
 import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager; // Import WebDriverManager
-import org.openqa.selenium.chrome.ChromeDriver; // Import ChromeDriver
-import org.openqa.selenium.chrome.ChromeOptions; // Import ChromeOptions
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Hook extends BaseUtil {
 
@@ -16,13 +16,13 @@ public class Hook extends BaseUtil {
 
     @Before
     public void InitializeTest(Scenario scenario) {
-        base.InitializeReport(); // Inicialize o relatório AQUI
-        base.features = base.extent.createTest("Nome das Features"); // Inicialize 'features' aqui
+        base.InitializeReport();
+        base.features = base.extent.createTest("Nome das Features");
         base.scenarioDef = base.features.createNode(scenario.getName());
-        WebDriverManager.chromedriver().setup(); // Agora será encontrado
-        ChromeOptions chromeOptions = new ChromeOptions(); // Agora será encontrado
-        chromeOptions.addArguments("--headless");
-        base.Driver = new ChromeDriver(chromeOptions); // Agora será encontrado
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
+        // chromeOptions.addArguments("--headless"); // Removendo a opção --headless
+        base.Driver = new ChromeDriver(chromeOptions);
     }
 
     @After
@@ -51,3 +51,4 @@ public class Hook extends BaseUtil {
         }
     }
 }
+
