@@ -2,7 +2,7 @@ package Base;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.configuration.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter; // Import correto para v5
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -31,8 +31,8 @@ public class BaseUtil {
         extent.setSystemInfo("OS", "Linux");
         extent.setSystemInfo("Browser", "Chrome");
         String reportPath = reportLocation + "/TestReport.html";
-        ExtentHtmlReporter htmlReporter = new ExtentHtmlReporter(reportPath);
-        extent.attachReporter(htmlReporter);
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter(reportPath); // Inicialização correta para v5
+        extent.attachReporter(sparkReporter);
         // Inicialize 'features' aqui, logo após inicializar 'extent'
         features = extent.createTest("Nome das Features");
     }
