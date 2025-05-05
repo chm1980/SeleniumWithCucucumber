@@ -2,10 +2,6 @@ package steps;
 
 import Base.BaseUtil;
 import io.cucumber.java.*;
-import io.github.bonigarcia.wdm.WebDriverManager; // Import WebDriverManager
-import org.openqa.selenium.chrome.ChromeDriver; // Import ChromeDriver
-import org.openqa.selenium.chrome.ChromeOptions; // Import ChromeOptions
-import org.openqa.selenium.edge.EdgeDriver; // Esta importação já estava presente
 
 public class Hook extends BaseUtil {
 
@@ -17,11 +13,13 @@ public class Hook extends BaseUtil {
 
     @Before
     public void InitializeTest(Scenario scenario) {
+        base.InitializeReport(); // Inicialize o relatório AQUI
+        base.features = base.extent.createTest("Nome das Features"); // Inicialize 'features' aqui
         base.scenarioDef = base.features.createNode(scenario.getName());
-        WebDriverManager.chromedriver().setup(); // Agora será encontrado
-        ChromeOptions chromeOptions = new ChromeOptions(); // Agora será encontrado
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--headless");
-        base.Driver = new ChromeDriver(chromeOptions); // Agora será encontrado
+        base.Driver = new ChromeDriver(chromeOptions);
     }
 
     @After
@@ -41,5 +39,12 @@ public class Hook extends BaseUtil {
     @AfterStep
     public void AfterEveryStep(Scenario scenario) throws NoSuchFieldException, IllegalAccessException {
         //System.out.println("Before every step " + stepTestStep.getId());
+    }
+
+    @AfterAll
+    public static void TearDownReport() {
+        if (extent != null) {
+            extent.flush();
+        }
     }
 }
