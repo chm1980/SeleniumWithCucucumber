@@ -40,7 +40,7 @@ public class LoginStep extends BaseUtil {
     @Given("^I navigate to the login page$")
     public void iNavigateToTheLoginPage() throws Throwable {
         base.scenarioDef.createNode(new GherkinKeyword("Given"), "I navigate to the login page");
-        base.Driver.navigate().to("http://www.executeautomation.com/demosite/Login.html");
+        base.Driver.navigate().to("https://executeautomation.medium.com/demosite/Login.html");
     }
 
     @And("^I click login button$")
