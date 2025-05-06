@@ -5,8 +5,7 @@ import io.cucumber.java.*;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.io.File;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Hook extends BaseUtil {
 
@@ -22,26 +21,23 @@ public class Hook extends BaseUtil {
         base.features = base.extent.createTest("Nome das Features");
         base.scenarioDef = base.features.createNode(scenario.getName());
 
-        // Verifica se o Chromium está instalado
-        File chromium = new File("/usr/bin/chromium-browser");
-        if (!chromium.exists()) {
-            throw new RuntimeException("Chromium browser não encontrado em /usr/bin/chromium-browser. Verifique se está instalado.");
+        // Remove a verificação do Chromium
+        // File chromium = new File("/usr/bin/chromium-browser");
+        // if (!chromium.exists()) {
+        //     throw new RuntimeException("Chromium browser não encontrado em /usr/bin/chromium-browser. Verifique se está instalado.");
+        // }
+
+        // Configura o WebDriverManager para o Chrome
+        try {
+            WebDriverManager.chromedriver().setup();
+        } catch (io.github.bonigarcia.wdm.config.WebDriverManagerException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Falha ao configurar o ChromeDriver com WebDriverManager. Detalhes: " + e.getMessage(), e);
         }
 
-        // Verifica se o ChromeDriver está instalado e tem permissão de execução
-        File chromedriver = new File("/usr/bin/chromedriver");
-        if (!chromedriver.exists()) {
-            throw new RuntimeException("ChromeDriver não encontrado em /usr/bin/chromedriver.");
-        }
-        chromedriver.setExecutable(true); // Garante permissão de execução
-
-        // Define o caminho do ChromeDriver
-        System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
-        System.setProperty("webdriver.chrome.verboseLogging", "true"); // Logs detalhados
-
-        // Configurações para execução headless em ARM/Linux
+        // Configurações para execução headless em ARM/Linux (adaptado para Chrome)
         ChromeOptions options = new ChromeOptions();
-        options.setBinary(chromium.getAbsolutePath()); // Usa o caminho do Chromium
+        options.setBinary("/usr/bin/google-chrome-stable"); // Usa o caminho do Google Chrome
         options.addArguments("--headless=old");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
@@ -84,4 +80,3 @@ public class Hook extends BaseUtil {
         }
     }
 }
-
