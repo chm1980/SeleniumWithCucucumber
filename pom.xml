@@ -69,6 +69,17 @@
             <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.4.14</version> </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-devtools</artifactId>
+            <version>4.18.1</version>
+            <classifier>v136</classifier> </dependency>
     </dependencies>
 
     <build>
@@ -112,4 +123,3 @@
         </plugins>
     </build>
 </project>
-
