@@ -14,6 +14,7 @@
         <webdrivermanager.version>5.8.0</webdrivermanager.version>
         <cucumber.version>7.14.0</cucumber.version>
         <cucumber.reporting.version>5.5.2</cucumber.reporting.version>
+        <selenium.version>4.18.1</selenium.version> <!- ADICIONEI ESTA LINHA -->
     </properties>
 
     <dependencies>
@@ -37,7 +38,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.18.1</version>
+            <version>${selenium.version}</version> <!- AGORA USANDO A PROPRIEDADE -->
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -73,12 +74,15 @@
         <dependency>
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-classic</artifactId>
-            <version>1.4.14</version> </dependency>
+            <version>1.4.14</version>
+        </dependency>
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-devtools</artifactId>
-            <classifier>v136</classifier> </dependency>
+            <version>${selenium.version}</version> <!- ADICIONEI A VERSÃO AQUI -->
+            <classifier>v136</classifier>
+        </dependency>
     </dependencies>
 
     <build>
