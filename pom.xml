@@ -14,7 +14,7 @@
         <webdrivermanager.version>5.8.0</webdrivermanager.version>
         <cucumber.version>7.14.0</cucumber.version>
         <cucumber.reporting.version>5.5.2</cucumber.reporting.version>
-        <selenium.version>4.18.1</selenium.version> 
+        <selenium.version>4.18.0</selenium.version> 
     </properties>
 
     <dependencies>
