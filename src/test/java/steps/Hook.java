@@ -32,7 +32,8 @@ public class Hook extends BaseUtil {
         // Configurações para execução headless em ARM/Linux (adaptado para Chrome)
         ChromeOptions options = new ChromeOptions();
         options.setBinary("/usr/bin/google-chrome-stable"); // Usa o caminho do Google Chrome
-        options.addArguments("--headless=old");
+        // Tenta usar a versão mais recente do headless
+        options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-gpu");
@@ -42,6 +43,9 @@ public class Hook extends BaseUtil {
         // Adiciona a opção para um diretório de dados do usuário único para evitar conflitos
         String userDataDir = "/tmp/chrome_user_data_" + System.currentTimeMillis();
         options.addArguments("--user-data-dir=" + userDataDir);
+
+        // Habilita logs verbosos do ChromeDriver
+        System.setProperty("webdriver.chrome.verboseLogging", "true");
 
         try {
             base.Driver = new ChromeDriver(options);
