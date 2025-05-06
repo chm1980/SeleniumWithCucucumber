@@ -81,7 +81,6 @@
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-devtools</artifactId>
             <version>${selenium.version}</version>
-            <classifier>v136</classifier>
         </dependency>
     </dependencies>
 
