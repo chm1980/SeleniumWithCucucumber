@@ -14,7 +14,7 @@
         <webdrivermanager.version>5.8.0</webdrivermanager.version>
         <cucumber.version>7.14.0</cucumber.version>
         <cucumber.reporting.version>5.5.2</cucumber.reporting.version>
-        <selenium.version>4.18.1</selenium.version> <!- ADICIONEI ESTA LINHA -->
+        <selenium.version>4.18.1</selenium.version> 
     </properties>
 
     <dependencies>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version> <!- AGORA USANDO A PROPRIEDADE -->
+            <version>${selenium.version}</version> 
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
